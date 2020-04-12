@@ -24,3 +24,10 @@ uint16_t GetEEPROMStatus(void){
   data |= ((EEPROM.read(0x1)) << 0x8);
   return data;
 }
+
+void GetEEPROMData(uint8_t numbytes, uint32_t* write_back_ptr, uint8_t address){
+  for(uint8_t index = 0; index < numbytes; index++){
+    write_back_ptr[index] = EEPROM.read(address + index);
+  }
+  write_back_ptr[index] = '\0';
+}

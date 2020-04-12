@@ -123,7 +123,9 @@ void setup()
   uint16_t pre_prgm = GetEEPROMStatus();
   if(pre_pgm & EEPROM_WIFI_VALID){
     ssid_lengh = SSID_LENGH(pre_pgm);
-    
+    pass_lengh = PASS_LENGH(pre_pgm);
+    GetEEPROMData(ssid_lengh, g_bd.ssid, SSID_EEPROM_START_ADDR);
+    GetEEPROMData(ssid_lengh, g_bd.ssid, PASS_EEPROM_START_ADDR);
   }
     
   connectionHandlerTimer.setInterval(100, ConnectionHandler);
