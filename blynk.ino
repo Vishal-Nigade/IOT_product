@@ -39,17 +39,10 @@ BLYNK_WRITE (V2)
   int value = param.asInt();
   g_bd.update_wifi = true; 
 }
-/*
-BLYNK_WRITE (V4)
-{
-  
-}
-BLYNK_WRITE (V5)
-{
-  
-}
+
 BLYNK_WRITE (V6)
 {
-  
+  uint8_t led_val = param.asInt();
+  Serial.println(led_val);
+  digitalWrite(LED,led_val);
 }
-*/
